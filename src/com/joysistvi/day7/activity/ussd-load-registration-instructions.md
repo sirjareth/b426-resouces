@@ -84,16 +84,14 @@ Selecting a promo shows its details and the action menu. The format is the same 
 *** Go+99 Promo ***
 -> Get 8 GB for all sites + 8GB
 [1] Subscribe
-[2] Back
-[3] Exit
+[2] Exit
 Enter a choice:
 ```
 
 | Choice | Behavior |
 |--------|----------|
 | `1` Subscribe | Shows `You are now subscribed to <promo name>` and ends the program |
-| `2` Back | Returns to the previous menu (the promo list) |
-| `3` Exit | Ends the program immediately |
+| `2` Exit | Ends the program immediately |
 
 ---
 
@@ -120,8 +118,7 @@ Enter a choice: 1
         *** Go+99 Promo ***
 -> Get 8 GB for all sites + 8GB
     [1] Subscribe
-    [2] Back
-    [3] Exit
+    [2] Exit
 Enter a choice: 1
 
 You are now subscribed to Go+99
