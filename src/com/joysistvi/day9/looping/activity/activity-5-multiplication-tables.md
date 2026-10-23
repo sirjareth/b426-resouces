@@ -1,4 +1,4 @@
-# Activity 5: Multiplication Tables using Java
+# Activity: Multiplication Tables using Java (Looping)
 
 ## Overview
 
