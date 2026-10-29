@@ -9,8 +9,11 @@ public class StringClass {
         // Login Program
         Scanner scanner = new Scanner(System.in);
         System.out.println("*** Login ***");
+        final int MAX_ATTEMPTS = 3;
 
-        while (true) {
+        boolean isLoggedIn = false;
+
+        for (int attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
             String correctUsername = "admin";
             String correctPassword = "admin123";
 
@@ -22,19 +25,31 @@ public class StringClass {
 
             // Validation
             if (username.isEmpty() || password.isEmpty()) {
-                System.out.println("Username and Password cannot be empty.");
+                System.out.println("Username and Password cannot be empty.\n");
+                continue; // skip the current iteration
             }
 
             // Authentication
             if (username.equals(correctUsername) && password.equals(correctPassword)) {
                 System.out.println("Login Successfully!");
                 System.out.println("Welcome, " + username + "!");
+                isLoggedIn = true;
                 break;
             } else {
                 System.out.println("Invalid Username or Password.");
                 System.out.println("Access Denied.\n");
             }
         }
+
+        // false
+        if (!isLoggedIn) {
+            System.out.println("Too many failed attempts. Account locked.");
+        }
+
+        scanner.close();
+
+
+
 
 
         // 5 retries
