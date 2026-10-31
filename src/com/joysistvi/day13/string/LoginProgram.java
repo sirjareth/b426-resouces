@@ -3,7 +3,7 @@ package com.joysistvi.day13.string;
 
 import java.util.Scanner;
 
-public class StringClass {
+public class LoginProgram {
 
     public static void main(String[] args) {
         // Login Program
