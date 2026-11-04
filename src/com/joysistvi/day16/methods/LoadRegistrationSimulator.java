@@ -27,28 +27,40 @@ public class LoadRegistrationSimulator {
     }
 
     public static void promptMainMenu() {
+
         while (true) {
-            System.out.println();
-            System.out.println("        * Load Registration *");
-            System.out.println("    [1] Go+");
-            System.out.println("    [2] Go");
-            System.out.println("    [3] GoEXTRA");
-            System.out.println("    [4] UNLI 5G");
-            System.out.println("    [5] ALLNET");
-            System.out.println("    [0] Exit");
+            try {
+                System.out.println();
+                System.out.println("        * Load Registration *");
+                System.out.println("    [1] Go+");
+                System.out.println("    [2] Go");
+                System.out.println("    [3] GoEXTRA");
+                System.out.println("    [4] UNLI 5G");
+                System.out.println("    [5] ALLNET");
+                System.out.println("    [0] Exit");
+                System.out.println("Enter a choice: ");
+                int mainChoice = scanner.nextInt();
 
-            int mainChoice = getInput("Enter a choice: ");
 
-            switch(mainChoice) {
-                case 1 -> goPlusPromo();
-                case 2 -> goPromo();
-//            case 3 -> goExtraPromo();
-//            case 4 -> unli5GPromo();
-//            case 5 -> allNetPromo();
-                case 0 -> exitMethod();
-                default -> System.out.println("Invalid Input. Please try again.");
+                switch(mainChoice) {
+                    case 1 -> goPlusPromo();
+                    case 2 -> goPromo();
+//                case 3 -> goExtraPromo();
+//                case 4 -> unli5GPromo();
+//                case 5 -> allNetPromo();
+                    case 0 -> exitMethod();
+                    default -> System.out.println("Invalid Input. Please try again.");
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+                scanner.nextLine(); // consume buffer
             }
         }
+
+
+
+
+
 
     }
 
@@ -117,6 +129,7 @@ public class LoadRegistrationSimulator {
     public static int getInput(String prompt) {
         while (true) {
             System.out.println(prompt);
+            //      10x
             String input = scanner.nextLine().trim();
 
             try {
@@ -125,6 +138,12 @@ public class LoadRegistrationSimulator {
                 System.out.println("Invalid Input. Please enter a number");
             }
         }
+    }
+
+    // Clears the terminal using ANSI escape codes
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
 

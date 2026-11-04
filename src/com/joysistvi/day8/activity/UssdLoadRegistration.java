@@ -13,10 +13,11 @@ public class UssdLoadRegistration {
         String ussdCode = scanner.nextLine();
 
         // guard clause / early exit
-        if (ussdCode != "*143#") {
+        if (!ussdCode.equals("*143#") ) {
             System.out.println("Invalid USSD Code!");
             return;
         }
+
 
         // 2. Main menu
         System.out.println();
