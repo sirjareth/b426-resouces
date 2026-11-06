@@ -219,7 +219,7 @@ public class LoadRegistrationSimulator {
                 balance -= price;
                 System.out.println("\nSUCCESS: You are now successfully subscribed to " + promoName + "!");
                 System.out.println("Remaining Balance: P" + balance);
-                System.exit(0);
+                System.exit(0); // exit system
             }
 
         }
