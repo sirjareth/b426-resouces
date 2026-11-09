@@ -57,14 +57,9 @@ Use your code from the inheritance activity as the starting point. Do not start 
    Pen pen2 = new Ballpen(...);
    ```
 
-6. Put all three objects in a `Pen[]` array.
+6. For each of the three objects, print a label (for example, `"--- Ballpen ---"`), then call `write()` and `refill()`.
 
-7. Use a loop to go through the array. For each pen:
-   - Print the class name using `pen.getClass().getSimpleName()`
-   - Call `write()`
-   - Call `refill()`
-
-8. Create a method in `Main` with this signature:
+7. Create a method in `Main` with this signature:
 
    ```java
    public static void testPen(Pen pen)
@@ -72,24 +67,24 @@ Use your code from the inheritance activity as the starting point. Do not start 
 
    It must print the pen using `System.out.println(pen)`, then call `write()` and `refill()`.
 
-9. Call `testPen()` three times, once for each of your objects.
+8. Call `testPen()` three times, once for each of your objects.
 
 ### Part 4: Overloading in action
 
-10. Using one of your child objects stored in a `Pen` reference, call:
-    - `write("Hello")`
-    - `write("Hello", 3)`
+9. Using one of your child objects stored in a `Pen` reference, call:
+   - `write("Hello")`
+   - `write("Hello", 3)`
 
 ### Part 5: Takeaway
 
-11. At the bottom of `Main.java`, write a comment (3 to 5 lines) that explains the difference between:
+10. At the bottom of `Main.java`, write a comment (3 to 5 lines) that explains the difference between:
     - Method overloading (compile-time)
     - Method overriding (runtime)
 
 ## Sample Output (Marker)
 
 ```
-=== Pen Array ===
+=== Calling methods on Pen references ===
 --- Pen ---
 Writing with a pen.
 Refilling the pen.
@@ -103,6 +98,20 @@ Writing boldly with a marker.
 Refilling the marker ink.
 
 === testPen() ===
+Brand: Generic
+Color: Blue
+Weight in Grams: 15.0
+Writing with a pen.
+Refilling the pen.
+
+Type: Ballpen
+Brand: Pilot
+Color: Black
+Weight in Grams: 20.0
+Point Size: 1.0
+Writing smoothly with a ballpen.
+Replacing the ballpen ink refill.
+
 Type: Marker
 Brand: Pentel
 Color: Red
@@ -110,6 +119,7 @@ Weight in Grams: 35.0
 Permanent: Yes
 Writing boldly with a marker.
 Refilling the marker ink.
+
 
 === Overloading ===
 Writing "Hello" with a pen.
@@ -119,16 +129,3 @@ Writing "Hello" with a pen.
 ```
 
 (The first line under Overloading comes from `write("Hello")`, and the next three come from `write("Hello", 3)`.)
-
-## Stretch Goal (Optional)
-
-Add a method that only your own child class has (for example, `capOn()` for `Marker`, or `sharpen()` for `Pencil`). Then, inside your loop, use `instanceof` and a cast to call it only when the object is your child class:
-
-```java
-if (pen instanceof Marker) {
-    Marker marker = (Marker) pen;
-    marker.capOn();
-}
-```
-
-Answer in a comment: why can't you call `capOn()` directly on a `Pen` reference?
