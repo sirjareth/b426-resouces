@@ -1,6 +1,7 @@
 package com.joysistvi.day25.collectionsframework;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayListCrud {
@@ -44,8 +45,28 @@ public class ArrayListCrud {
 //            System.out.println(color);
 //        }
 
-        colors.forEach(System.out::println);
+        //colors.forEach(System.out::println);
 
+        // Sorting
+//        Collections.sort(colors);
+//        System.out.println("\nAfter sorting: ");
+//        colors.forEach(System.out::println);
 
+        // Shuffle
+//        Collections.shuffle(colors);
+//        colors.forEach(System.out::println);
+//        System.out.println();
+//        Collections.shuffle(colors);
+//        colors.forEach(System.out::println);
+//        System.out.println();
+//        Collections.shuffle(colors);
+//        colors.forEach(System.out::println);
+
+        // contains()
+        System.out.println(colors.contains("Black"));
+
+        // indexOf()
+        System.out.println(colors.indexOf("White")); // return the first occurrence
+        System.out.println(colors.lastIndexOf("White")); //  // return the last occurrence
     }
 }
