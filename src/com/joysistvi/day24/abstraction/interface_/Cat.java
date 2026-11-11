@@ -45,4 +45,14 @@ public class Cat extends Animal implements Pet{
     public void showAffection() {
         System.out.println(getName() + " purrs and rubs against you.");
     }
+
+    @Override
+    public void pay() {
+
+    }
+
+    @Override
+    public void getStocks() {
+
+    }
 }

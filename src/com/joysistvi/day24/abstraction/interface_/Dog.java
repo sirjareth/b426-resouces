@@ -43,6 +43,16 @@ public  class Dog extends Animal implements Pet, Swimmer{
     }
 
     @Override
+    public void pay() {
+
+    }
+
+    @Override
+    public void getStocks() {
+
+    }
+
+    @Override
     public void swim() {
         System.out.println(getName() + " swims in the river.");
     }
