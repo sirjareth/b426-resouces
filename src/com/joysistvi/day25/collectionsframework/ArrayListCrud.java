@@ -1,10 +1,9 @@
 package com.joysistvi.day25.collectionsframework;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class ArrayListCrud {
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         List<String> colors = new ArrayList<>();
@@ -17,11 +16,12 @@ public class ArrayListCrud {
         colors.add("White");
         colors.add("Yellow");
 
+
         // Update / Set item(s)
         //colors.set(0, "Mlue");
 
         // Read / Get item(s)
-        System.out.println(colors.get(0));
+        //System.out.println(colors.get(0));
 
         // Delete / Remove an item(s)
         //colors.remove(0);
@@ -63,10 +63,23 @@ public class ArrayListCrud {
 //        colors.forEach(System.out::println);
 
         // contains()
-        System.out.println(colors.contains("Black"));
+//        System.out.println(colors.contains("Black"));
+//
+//        // indexOf()
+//        System.out.println(colors.indexOf("White")); // return the first occurrence
+//        System.out.println(colors.lastIndexOf("White")); //  // return the last occurrence
 
-        // indexOf()
-        System.out.println(colors.indexOf("White")); // return the first occurrence
-        System.out.println(colors.lastIndexOf("White")); //  // return the last occurrence
+//        Random random = new Random();
+//        for (int i = 0; i < 6; i++) {
+//            System.out.println(random.nextInt(58) + 1);
+//        }
+
     }
+
+//    public void addItem() {
+//        System.out.print("Enter task: ");
+//        String task = scanner.nextLine();
+//        task.add(task);
+//
+//    }
 }
