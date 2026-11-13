@@ -1,4 +1,4 @@
-package com.joysistvi.day25.collectionsframework;
+package com.joysistvi.day25.arraylist;
 
 import java.util.*;
 
@@ -16,7 +16,7 @@ public class ArrayListCrud {
         colors.add("White");
         colors.add("Yellow");
 
-
+        colors.forEach(System.out::println);
         // Update / Set item(s)
         //colors.set(0, "Mlue");
 
