@@ -115,5 +115,4 @@ Artist ID 6 deleted successfully!
 
 ## 🚀 Stretch Goal
 
-* **Test Foreign Key Restriction (`ON DELETE RESTRICT`):** Inside `main()`, try calling `deleteArtist(1)` (an artist that already has albums in `albums`) and observe the `SQLException` message caught by your `catch` block.
 * **Find by ID Helper:** Create `getArtistById(int id)` and `getAlbumById(int id)` methods that execute `SELECT ... WHERE id = ?` and print a single matching record.
