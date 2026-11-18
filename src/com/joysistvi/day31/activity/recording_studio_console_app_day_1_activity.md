@@ -1,4 +1,4 @@
-# 🎵 Recording Studio Console App: Day 1 Activity — Albums & Artists JDBC CRUD
+# 🎵 Recording Studio Console App: Session 1 Activity — Albums & Artists JDBC CRUD
 
 ## 🎯 Objectives
 
