@@ -127,21 +127,59 @@ private void dashboard() {
 }
 ```
 
+---
+
+## Task 4: Implement Playlist Management (CRUD, Archive/Restore, and Search)
+
+Implement the `Playlist` entity across the 3-tier architecture (`Model`, `Repository`, `Service`, `View`) to handle playlist management operations. Focus on the `playlists` table CRUD, soft-delete (`is_archived`), and search in this activity—handling of the `playlist_songs` junction table will be covered in the discussion part.
+
+### 1. `Playlist` Model (`model/Playlist.java`)
+Create the `Playlist` entity with fields matching your `playlists` table (such as `id`, `name`, `userId`, optional `username` for joined display, and `archived` for `is_archived`), along with constructors, getters, and setters.
+
+### 2. `PlaylistRepository` & `PlaylistRepositoryImpl`
+Implement the following repository methods using `DbConnection` and `PreparedStatement`:
+- `List<Playlist> findAllActive()` — retrieve active playlists (`WHERE is_archived = 0`)
+- `List<Playlist> findAllArchived()` — retrieve archived playlists (`WHERE is_archived = 1`)
+- `boolean save(Playlist playlist)` — insert a new playlist into the `playlists` table
+- `boolean update(Playlist playlist)` — update existing playlist details in the `playlists` table
+- `boolean deleteById(int id)` — permanently delete a playlist (`DELETE FROM playlists WHERE id = ?`)
+- `boolean archiveById(int id)` — soft-delete a playlist (`UPDATE playlists SET is_archived = 1 WHERE id = ?`)
+- `boolean restoreById(int id)` — restore an archived playlist (`UPDATE playlists SET is_archived = 0 WHERE id = ?`)
+- `List<Playlist> searchByName(String keyword)` — search active playlists by name (`WHERE is_archived = 0 AND name LIKE ?`)
+
+### 3. `PlaylistService` & `PlaylistServiceImpl`
+Implement the service layer delegating to `PlaylistRepository` with proper input validation and guard clauses (such as non-blank `name` / `keyword` and positive `id` / `userId`):
+- `getAllActivePlaylists()`
+- `getAllArchivedPlaylists()`
+- `createPlaylist(String name, int userId)`
+- `updatePlaylist(int id, String name, int userId)`
+- `deletePlaylist(int id)`
+- `archivePlaylist(int id)`
+- `restorePlaylist(int id)`
+- `searchPlaylists(String keyword)`
+
+### 4. `PlaylistView` with `handleMenu()`
+Create `PlaylistView` with a `handleMenu()` loop covering:
+- View All Active Playlists
+- Create Playlist
+- Update Playlist
+- Search Playlists
+- Archive Playlist
+- Restore Playlist (display archived playlists first; return early if none exist)
+- Delete Playlist
+- `0. Back` to return to the caller menu
+
+> **Note:** Junction table (`playlist_songs`) operations (adding/removing songs in a playlist) are intentionally set aside for the discussion part so this activity stays focused on `Playlist` CRUD and lifecycle management.
+
 *(Tip: Wrapping `dashboard()` in a `while (true)` loop lets the user return to the dashboard after finishing with one management module, and pressing `0` exits back to `run()` to log out.)*
 
 ## Verification & Testing Checklist
-
-Before submitting Session 4, test all four management options (`1` to `4`) from `dashboard()`:
-
-* [ ] **Invalid Input Guard Clauses**: Blank names/titles/keywords, IDs `<= 0`, invalid numbers, out-of-range values, invalid emails, or short passwords are rejected cleanly without crashing or corrupting data.
-
-* [ ] **CRUD + Search**: Creating, viewing active records, searching by keyword, updating records, and permanently deleting records work for **Song**, **Artist**, **Album**, and **User**.
-
-* [ ] **Soft Delete & Restore (`is_archived`)**: Archiving sets `is_archived = 1` (hiding the record from active lists), restoring displays archived records (`is_archived = 1`) first and sets `is_archived = 0` so it reappears in active lists.
-
-* [ ] **Authentication (`BCrypt`)**: Registering creates a valid BCrypt hash, and logging in succeeds with matching credentials while rejecting wrong passwords or unknown usernames.
-
-* [ ] **Navigation**: Choosing `0` inside any management menu returns to `dashboard()`, and choosing `0` in `dashboard()` logs out and returns to `showAuthMenuAndAuthenticate()`.
+Before submitting Session 4, test all management options (`Song`, `Artist`, `Album`, `User`, and `Playlist`) from `dashboard()`:
+- [ ] **Invalid Input Guard Clauses:** Blank names/titles/keywords, IDs `<= 0`, invalid numbers, out-of-range values, invalid emails, or short passwords are rejected cleanly without crashing or corrupting data.
+- [ ] **CRUD + Search:** Creating, viewing active records, searching by keyword, updating records, and permanently deleting records work for `Song`, `Artist`, `Album`, `User`, and `Playlist`.
+- [ ] **Soft Delete & Restore (`is_archived`):** Archiving sets `is_archived = 1` (hiding the record from active lists), while restoring displays archived records (`is_archived = 1`) first and sets `is_archived = 0` so it reappears in active lists.
+- [ ] **Authentication (BCrypt):** Registering creates a valid BCrypt hash, and logging in succeeds with matching credentials while rejecting wrong passwords or unknown usernames.
+- [ ] **Navigation:** Choosing `0` inside any management menu (`handleMenu()`) returns to `dashboard()`, and choosing `0` in `dashboard()` logs out and returns to `showAuthMenuAndAuthenticate()`.
 
 ## Submission
 
