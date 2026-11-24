@@ -41,8 +41,11 @@ Even though this is a console-based application, the output must be clean, reada
 
 ## 4. Documentation Standards
 
-* **Follow the Provided Template:** Include complete documentation based on the official template provided in class (covering project overview, architecture/layer wiring, setup instructions, and features).
-* **Custom Additions Are Welcome:** You may expand or enhance the documentation with additional notes, database setup steps, or feature explanations—just make sure everything remains well-organized, properly formatted in Markdown, and consistent with your actual codebase.
+- **Follow the Provided `README.md` Template:** Complete all sections from the official `README.md` template provided in class, including:
+  - **Overview & Features:** Features, Use Cases, and Sample Usage (covering RBAC for `ADMIN` vs. `USER`, CRUD, search, soft-delete/archive & restore, and playlist management).
+  - **Tech Stack & Structure:** Tech Stack, Architecture (layer wiring and data flow), Project Structure, and Database Design (including where the `.sql` file is located).
+  - **Setup, Usage & Notes:** Getting Started, Running the App, Design Decisions, Learning Path (3-Day Plan), Troubleshooting, and Author.
+- **Custom Additions Are Welcome:** You may expand or enhance any section with extra notes, database setup steps, terminal run instructions, or feature details—just make sure everything remains well-organized, properly formatted in Markdown, and consistent with your actual codebase.
 
 ---
 
